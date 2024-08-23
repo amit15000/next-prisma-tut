@@ -4,7 +4,7 @@ import { ChangeEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Signup() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
   return (
@@ -21,10 +21,10 @@ export default function Signup() {
             <div className="pt-2">
               <LabelledInput
                 onChange={(e) => {
-                  setUsername(e.target.value);
+                  setEmail(e.target.value);
                 }}
-                label="Username"
-                placeholder="harkirat@gmail.com"
+                label="email"
+                placeholder="amit@gmail.com"
               />
               <LabelledInput
                 onChange={(e) => {
@@ -38,7 +38,7 @@ export default function Signup() {
                 type="button"
                 onClick={async () => {
                   axios.post("http://localhost:3000/api/user", {
-                    username,
+                    email,
                     password,
                   });
                   router.push("/");
