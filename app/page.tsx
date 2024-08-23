@@ -1,7 +1,5 @@
 import prisma from "@/db";
 import { PrismaClient } from "@prisma/client";
-import axios from "axios";
-import { setTimeout } from "timers/promises";
 
 const client: PrismaClient = prisma;
 
