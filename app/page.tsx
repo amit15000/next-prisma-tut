@@ -1,3 +1,4 @@
+import { Appbar } from "@/components/Appbar";
 import prisma from "@/db";
 import { PrismaClient } from "@prisma/client";
 
@@ -13,6 +14,7 @@ export default async function Home() {
       <div className="flex justify-center">
         <div className="border p-8 rounded">
           <div>{userData?.email}</div>
+          <Appbar />
         </div>
       </div>
     </div>
