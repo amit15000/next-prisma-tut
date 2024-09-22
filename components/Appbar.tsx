@@ -1,6 +1,6 @@
 "use client";
 
-import { signIn, signOut } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 // import { useRouter } from "next/navigation";
 
@@ -11,12 +11,18 @@ import { signIn, signOut } from "next-auth/react";
 //   );
 // }
 
-export function Appbar() {
+export async function Appbar() {
+  const session = useSession();
+
   return (
     <>
+      <br></br>
       <button onClick={() => signIn()}>SignIn</button>
       <br></br>
       <button onClick={() => signOut()}>SignOut</button>
+      <br></br>
+      <br></br>
+      Client Compoent Session: {JSON.stringify(session)}
     </>
   );
 }
