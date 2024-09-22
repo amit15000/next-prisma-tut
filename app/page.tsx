@@ -1,7 +1,7 @@
 import { Appbar } from "@/components/Appbar";
 import prisma from "@/db";
 import { PrismaClient } from "@prisma/client";
-import { getServerSession, Session } from "next-auth";
+import { getServerSession } from "next-auth";
 import { NEXT_AUTH } from "./lib/auth";
 
 const client: PrismaClient = prisma;

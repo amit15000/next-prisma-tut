@@ -1,4 +1,8 @@
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
+import GitHubProvider from "next-auth/providers/github";
+import { pages } from "next/dist/build/templates/app-page";
+import { signIn } from "next-auth/react";
 export const NEXT_AUTH = {
   providers: [
     CredentialsProvider({
@@ -18,6 +22,14 @@ export const NEXT_AUTH = {
         }
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID || "",
+      clientSecret: process.env.GITHUB_SECRET || "",
+    }),
   ],
   callbacks: {
     async jwt({ token, account, profile }) {
@@ -30,5 +42,8 @@ export const NEXT_AUTH = {
       console.log(session);
       return session;
     },
+  },
+  pages: {
+    signIn: "/signin",
   },
 };
